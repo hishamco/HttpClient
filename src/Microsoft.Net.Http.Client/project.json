@@ -1,4 +1,4 @@
-{
+﻿{
   "version": "1.0.0-*",
   "dependencies": {},
   "compilationOptions": {
@@ -10,12 +10,12 @@
         "System.Net.Http": ""
       }
     },
-    "aspnet50": {
+    "dnx451": {
       "frameworkAssemblies": {
         "System.Net.Http": ""
       }
     },
-    "aspnetcore50": {
+    "dnxcore50": {
       "dependencies": {
         "Microsoft.Win32.Primitives": "4.0.0-beta-*",
         "System.Collections": "4.0.10-beta-*",

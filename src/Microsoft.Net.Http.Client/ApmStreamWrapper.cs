@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -95,7 +95,7 @@ namespace Microsoft.Net.Http.Client
 
         public override IAsyncResult BeginRead(byte[] buffer, int offset, int size, AsyncCallback callback, object state)
         {
-#if ASPNETCORE50
+#if DNXCORE50
             TaskCompletionSource<int> tcs = new TaskCompletionSource<int>(state);
             InternalReadAsync(buffer, offset, size, callback, tcs);
             return tcs.Task;
@@ -104,7 +104,7 @@ namespace Microsoft.Net.Http.Client
 #endif
         }
 
-#if ASPNETCORE50
+#if DNXCORE50
         private async void InternalReadAsync(byte[] buffer, int offset, int size, AsyncCallback callback, TaskCompletionSource<int> tcs)
         {
             try
@@ -129,7 +129,7 @@ namespace Microsoft.Net.Http.Client
 
         public override IAsyncResult BeginWrite(byte[] buffer, int offset, int size, AsyncCallback callback, object state)
         {
-#if ASPNETCORE50
+#if DNXCORE50
             TaskCompletionSource<object> tcs = new TaskCompletionSource<object>(state);
             InternalWriteAsync(buffer, offset, size, callback, tcs);
             return tcs.Task;
@@ -138,7 +138,7 @@ namespace Microsoft.Net.Http.Client
 #endif
         }
 
-#if ASPNETCORE50
+#if DNXCORE50
         private async void InternalWriteAsync(byte[] buffer, int offset, int size, AsyncCallback callback, TaskCompletionSource<object> tcs)
         {
             try
@@ -163,7 +163,7 @@ namespace Microsoft.Net.Http.Client
 
         public override int EndRead(IAsyncResult asyncResult)
         {
-#if ASPNETCORE50
+#if DNXCORE50
             Task<int> t = (Task<int>)asyncResult;
             t.Wait();
 
@@ -179,7 +179,7 @@ namespace Microsoft.Net.Http.Client
 
         public override void EndWrite(IAsyncResult asyncResult)
         {
-#if ASPNETCORE50
+#if DNXCORE50
             Task t = (Task)asyncResult;
             t.Wait();
 
