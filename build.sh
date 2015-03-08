@@ -1,4 +1,4 @@
-#!/bin/sh
+﻿#!/bin/sh
 
 if test `uname` = Darwin; then
     cachedir=~/Library/Caches/KBuild
@@ -27,14 +27,14 @@ if test ! -d packages/KoreBuild; then
     mono .nuget/nuget.exe install Sake -version 0.2 -o packages -ExcludeVersion
 fi
 
-KRE_VERSION=$(mono .nuget/nuget.exe install KRE-mono45-x86 -pre -o ~/.kre/packages | head -1 | sed "s/.*KRE-mono45-x86 \([^']*\).*/\1/")
-KRE_BIN=~/.kre/packages/KRE-mono45-x86.$KRE_VERSION/bin
+DNX_VERSION=$(mono .nuget/nuget.exe install DNX-mono45-x86 -pre -o ~/.dnx/packages | head -1 | sed "s/.*DNX-mono45-x86 \([^']*\).*/\1/")
+DNX_BIN=~/.dnx/packages/DNX-mono45-x86.$DNX_VERSION/bin
 
-chmod +x $KRE_BIN/k
-chmod +x $KRE_BIN/klr
-chmod +x $KRE_BIN/kpm
-chmod +x $KRE_BIN/k-build
+chmod +x $DNX_BIN/k
+chmod +x $DNX_BIN/klr
+chmod +x $DNX_BIN/kpm
+chmod +x $DNX_BIN/k-build
 
-export PATH=$KRE_BIN:$PATH
+export PATH=$DNX_BIN:$PATH
 
 mono packages/Sake/tools/Sake.exe -I packages/KoreBuild/build -f makefile.shade "$@"
