@@ -209,7 +209,7 @@ namespace Microsoft.Net.Http.Client
 
         public override void SetLength(long value)
         {
-            SetLength(value);
+            _innerStream.SetLength(value);
         }
 
         public override void Write(byte[] buffer, int offset, int count)
