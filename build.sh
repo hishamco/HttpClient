@@ -31,8 +31,8 @@ DNX_VERSION=$(mono .nuget/nuget.exe install DNX-mono45-x86 -pre -o ~/.dnx/packag
 DNX_BIN=~/.dnx/packages/DNX-mono45-x86.$DNX_VERSION/bin
 
 chmod +x $DNX_BIN/k
-chmod +x $DNX_BIN/klr
-chmod +x $DNX_BIN/kpm
+chmod +x $DNX_BIN/dnx
+chmod +x $DNX_BIN/dnu
 chmod +x $DNX_BIN/k-build
 
 export PATH=$DNX_BIN:$PATH
