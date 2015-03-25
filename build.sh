@@ -30,7 +30,6 @@ fi
 DNX_VERSION=$(mono .nuget/nuget.exe install DNX-mono45-x86 -pre -o ~/.dnx/packages | head -1 | sed "s/.*DNX-mono45-x86 \([^']*\).*/\1/")
 DNX_BIN=~/.dnx/packages/DNX-mono45-x86.$DNX_VERSION/bin
 
-chmod +x $DNX_BIN/k
 chmod +x $DNX_BIN/dnx
 chmod +x $DNX_BIN/dnu
 chmod +x $DNX_BIN/k-build
