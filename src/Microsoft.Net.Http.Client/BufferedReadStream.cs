@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Framework.Internal;
 
 namespace Microsoft.Net.Http.Client
 {
@@ -17,12 +18,8 @@ namespace Microsoft.Net.Http.Client
         private int _bufferCount = 0;
         private bool _disposed;
 
-        public BufferedReadStream(ApmStream inner)
+        public BufferedReadStream([NotNull] ApmStream inner)
         {
-            if (inner == null)
-            {
-                throw new ArgumentNullException("inner");
-            }
             _inner = inner;
             _buffer = new byte[1024];
         }

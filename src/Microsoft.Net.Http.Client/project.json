@@ -1,6 +1,8 @@
 {
   "version": "1.0.0-*",
-  "dependencies": {},
+  "dependencies": {
+    "Microsoft.Framework.NotNullAttribute.Internal": { "type": "build", "version": "1.0.0-*" }
+  },
   "compilationOptions": {
     "allowUnsafe": true
   },

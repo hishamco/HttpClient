@@ -7,6 +7,7 @@ using System.Net.Security;
 using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Framework.Internal;
 
 namespace Microsoft.Net.Http.Client
 {
@@ -28,13 +29,8 @@ namespace Microsoft.Net.Http.Client
 
         public RedirectMode RedirectMode { get; set; }
 
-        protected async override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        protected async override Task<HttpResponseMessage> SendAsync([NotNull] HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            if (request == null)
-            {
-                throw new ArgumentNullException("request");
-            }
-
             HttpResponseMessage response = null;
             int redirectCount = 0;
             bool retry;
